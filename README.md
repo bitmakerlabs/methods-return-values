@@ -9,15 +9,13 @@ This assignment will teach you about methods and return values. Methods are one 
 1. [Return Values](#return-values)
 1. [Arguments/Parameters](#argumentsparameters)
 1. [Exercise 1](#exercise-1)
-1. [Methods are on Objects](#methods-are-on-objects)
 1. [Naming methods](#naming-methods)
 1. [Inputs and Outputs](#inputs-and-outputs)
 1. [Number of Return Values](#number-of-return-values)
 1. [Exercise 2](#exercise-2)
 1. [Implicit Returns](#implicit-returns)
 1. [Exercise 3](#exercise-3)
-1. [Exercise 1](#exercise-1)
-1. [Exercise 1](#exercise-1)
+1. [Exercise 4](#exercise-4)
 1. [Further reading](#further-reading)
 
 
@@ -26,7 +24,7 @@ This assignment will teach you about methods and return values. Methods are one 
 * Have Ruby (and `irb`) set up
 * data types in Ruby (numbers, booleans, arrays)
 * Conditionals
-* Iteration (basics, toward the end)
+* Collections and iteration
 
 # Methods and Return Values
 
@@ -34,7 +32,7 @@ In their simplest form, a *method* is a set of instructions for the computer to 
 
 > A method is a set of instructions about a single thing.
 
-Let's explore that idea. We'll refine our definition later on.
+Let's explore that idea.
 
 ## Daily tasks
 Your boss tells you to upload a new article onto the company's website, and to take out the garbage when you are finished.
@@ -302,54 +300,7 @@ another_number = add(add(1, 1), add(1, 1)) # also valid
 1. Write a method called `cube` that takes a number and multiplies it by itself three times. It should return the result.
   * Hint: we already have a method that accomplishes part of this.
 
-1. Write a method called `impress_friends` that takes a number as an argument. It should cube that number and return a string such as: `I know numbers bigger than 9261, do you?`
-
-
-## Methods are on Objects
-
-You haven't yet learned about *objects* in Ruby, but there is an important concept to briefly tackle.
-
-Your boss hires another employee. Now there are two of you that can upload articles and take out the garbage (whew!). So he can't just yell "upload article!" into the void anymore and expect it to get done. Instead, he has to tell one of you to do it.
-
-If we have a variable for each employee, perhaps the variable that represents you is `you` and the variable for the other employee is `ramona`. If your boss wants to get anything done, they will have to be more specific:
-
-```ruby
-ramona.upload_article("First article")
-you.take_out_garbage
-```
-
-Looks like you didn't get out of garbage duty this time, but maybe tomorrow your boss wants things done differently:
-
-```ruby
-ramona.take_out_garbage
-you.upload_article("First article")
-ramona.upload_article("Second article")
-```
-
-It turns out that methods in Ruby are never isolated. They are not just a set of instructions, but a set of instructions *on* something. In our example, that something might be `Employee`. We won't go into the details of how to define such a thing now. The important takeaway is that whenever you call a method, that method is being called *on* something. For example:
-
-```ruby
-new_string = "abcde".reverse # new_string is now "edcba"
-
-my_array.each do |item|
-  puts item
-end
-```
-
-Both the `reverse` method and the  `each` method are defined objects. Specifically, `reverse` is defined on both `String` (so it can be done on strings) and `Array` (so it can also be done on arrays). Similarly, `each` is defined on `Array` (so you can use it on arrays).
-
-Whenever you see syntax using the "dot notation" (eg. `my_string.each`), we can figure out two things:
-
-  1. `each` is a method
-  1. `my_string` is some kind of object that understands `.each`.
-
-This is a really important, and it will come up over and over again. You may, however, be wondering if the methods we define ourselves are defined on other things. It turns out that they are, though the details are not important. So when we used our `add` method, we were, implicitly, telling Ruby to do `something.add`, where we haven't taught you about the `something` part.
-
-If that last point doesn't make sense, that's okay; what matters is that we know that all methods are defined on things, rather than in isolation. Therefore, let's refine our definition of "method" again:
-
-> A method is a set of instructions defined on something. A method should have a single purpose.
-
-That should do nicely. Again, you'll learn more about objects in Ruby soon enough! Feel free to come back to this section later in the course.
+1. Write a method called `impress_friends` that takes a number as an argument. It should cube that number and return that number in a string, such as: `I know numbers bigger than 9261, do you?`
 
 
 ### Naming methods
@@ -592,6 +543,15 @@ express_love(toys) # using method from above
 ```ruby
 puts express_love(toys)
 ```
+
+
+## Exercise 4
+
+1. Write a method that takes a name and returns that name in a string: `'Hello, Beatrice!'`
+
+1. Write a method that takes an array of names and returns an array of greetings.
+
+1. Create an array of names and try the methods. Print out the result.
 
 
 
