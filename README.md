@@ -617,6 +617,10 @@ NOTE: the 'double star' operator means 'to the power to'. In other words, `3**4`
 
 NOTE: These exercises are advanced and introduce new syntax. Stop here if your brain is full! If not, put these (optional) exercises into a file called `stretch.rb`.
 
+
+[[ cover default parameters here? ]]
+
+
 1. The answer to the life, the universe, and everything is 42. It doesn't matter how many arguments you pass to this method - it should always return 42. NOTE: this requires special syntax.
   * `answer` => 42
   * `answer(5, 2)` => 42
@@ -626,16 +630,6 @@ NOTE: These exercises are advanced and introduce new syntax. Stop here if your b
   * `multiply(4)` => 4
   * `multiply(3, 7)` => 21
   * `multiply(4, 5, 6, 2)` => 240
-
-
-re: ideas for more methods exercises, maybe we could give them a bunch of formulas (like math and science formulas) and have them translate each of them into ruby methods?  Currently we get them to do that with the formula for converting from fahrenheit to celcius
-for example if we give them "speed = distance / time" then they'd have to come up with
-```def speed(distance, time)
-  return distance / time
-end
-```
-and then also get them to try calling the method with specific values:
-```speed(100, 44)```
 
 
 
