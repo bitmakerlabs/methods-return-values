@@ -26,6 +26,10 @@ This assignment will teach you about methods and return values. Methods are one 
 * Conditionals
 * Collections and iteration
 
+
+## Submission
+Each exercise will have a different file, either with a `.rb` or `.md` extension. Submit the repository containing all of the files.
+
 # Methods and Return Values
 
 In their simplest form, a *method* is a set of instructions for the computer to run. You might say that the entire program is a set of instructions, so here is a more specific attempt:
@@ -295,6 +299,9 @@ another_number = add(add(1, 1), add(1, 1)) # also valid
 >It is common to use `parameter` and `argument` interchagably. You don't need to remember the difference - just how methods work!
 
 ## Exercise 1
+
+Put your answers to the below questions into a file called `exercise1.rb`.
+
 1. Write a method called `multiply_3` that multiplies three numbers together and returns the result.
 
 1. Write a method called `cube` that takes a number and multiplies it by itself three times. It should return the result.
@@ -380,6 +387,8 @@ end
 
 
 ## Exercise 2
+
+Put your below answers into a Markdown file called `exercise2.md`.
 
 You're given a list of tasks to accomplish. Consider and write down what you think the inputs and the outputs of each would be. There are often multiple valid answers. Come up with a name for each method as well. Some outputs we've seen so far are `true`, `false`, `nil`, numbers, and strings, but remember that a method can return anything!
 
@@ -498,7 +507,7 @@ Now `my_return_val` should have the same value as `veggies`! It turns out that e
 
 ## Exercise 3
 
-Try each of the below code snippets and determine what they return:
+Try each of the below code snippets and determine what they return. Copy the results and paste them into a markdown file called exercise3.md.
 
 1.
 ```ruby
@@ -547,11 +556,86 @@ puts express_love(toys)
 
 ## Exercise 4
 
+Create a file called `exercise4.rb` and place your answers inside.
+
 1. Write a method that takes a name and returns that name in a string: `'Hello, Beatrice!'`
 
 1. Write a method that takes an array of names and returns an array of greetings.
 
 1. Create an array of names and try the methods. Print out the result.
+
+
+## Exercise 5
+
+Create a file called `exercise5.rb` and place your answers inside.
+
+Given the following formulas, write a method for each that accomplishes its desired result. Call it with the given examples in `irb`. Your method can include multiple lines of code if needed.
+
+NOTE: the 'double star' operator means 'to the power to'. In other words, `3**4` means '3 to the power of 4', ie. 3*3*3*3.
+
+1. The area of a rectangle is: length * width
+  * `area(10, 5)` => 50
+  * `area(2, 3)` => 6
+
+1. The speed of an object (m/s) is: distance / time equal to the distance it has traveled (m) divided by the time it has been moving.
+  * `speed(100, 5)` => 20 (distance, time)
+  * `speed(250, 100)` => 2.5
+
+1. The circumference of a circle is: 2 * Pi * radius, where Pi ~= 3.14159.
+  * `circumference(5)` => 31.4592...
+  * `circumference(1)` => 6.2831...
+
+1. The volume of a sphere is: 4/3 * Pi * (radius ** 3)
+  * `volume(1)` => 4.1887...
+  * `volume(3)` => 113.0973...
+
+1. The Pythagorean Theorem states that the square of the length of longest side in a right-angled triangle is equal to the sum of the squares of the other two sides. We want a method that returns the length of the longest side given the lengths of the other two sides.
+  * `hypotenuse(3, 4)` => 5, because 3 squared is 9, 4 squared is 16, their sum is 25, and the square root of 25 is 5
+  * `hypotenuse(9, 12)` => 15
+  * `hypotenuse(7, 7)` => 9.8994...
+
+1. Einstein's theory of special relativity states that an object with `m` mass (kg) has energy m * c**2, where `c` is the speed of light (`299792458 m/s`).
+  * `e = energy(0.05)` => 4.493775893684088e+15 (ie. approx. 44937 with 10 zeroes)
+  * `e = energy(0.00003)` => 2696265536210.4526
+
+## Exercise 6
+
+1. Write a method that, given three number arguments, provides the largest number that is no more than 10.
+  * `largest_to_10(5, 6, 8)` => 8
+  * `largest_to_10(11, 9, 10)` => 10
+  * `largest_to_10(12, 15, 300)` => nil
+
+
+
+
+
+
+
+
+
+## Stretch Exercises
+
+NOTE: These exercises are advanced and introduce new syntax. Stop here if your brain is full! If not, put these (optional) exercises into a file called `stretch.rb`.
+
+1. The answer to the life, the universe, and everything is 42. It doesn't matter how many arguments you pass to this method - it should always return 42. NOTE: this requires special syntax.
+  * `answer` => 42
+  * `answer(5, 2)` => 42
+
+1. Write a method that multiplies any number of arguments together.
+  * `multiply` => 1
+  * `multiply(4)` => 4
+  * `multiply(3, 7)` => 21
+  * `multiply(4, 5, 6, 2)` => 240
+
+
+re: ideas for more methods exercises, maybe we could give them a bunch of formulas (like math and science formulas) and have them translate each of them into ruby methods?  Currently we get them to do that with the formula for converting from fahrenheit to celcius
+for example if we give them "speed = distance / time" then they'd have to come up with
+```def speed(distance, time)
+  return distance / time
+end
+```
+and then also get them to try calling the method with specific values:
+```speed(100, 44)```
 
 
 
