@@ -554,7 +554,94 @@ puts express_love(toys)
 ```
 
 
+## Default Parameters
+
+Sometimes we want a method to operate in a certain way by default. Let's imagine we have a method that tells everybody the age of our child:
+
+```ruby
+def age_of_child(age)
+  puts "My child is #{age} years old."
+end
+
+age_of_child(4)
+# outputs 'My child is 4 years old.'
+```
+
+When a new baby is born, the parents are probably going to want to tell everybody about it:
+
+```ruby
+age_of_child(0)
+# outputs 'My child is 0 years old.'
+```
+
+This works just fine, but it seems likely that a lot of new parents are going to announce the age of their children. Wouldn't it be nice if the method would assume the age was `0` unless an age is provided?
+
+```ruby
+age_of_child
+# Hopefully outputs 'My child is 0 years old.'
+```
+
+It turns out that we can do this in Ruby (and many languages) with default parameters. You can set up your method to have certain pieces of data by default - in this case, the `age` `0`.
+
+```ruby
+def age_of_child(age=0)
+  puts "My child is #{age} years old."
+end
+
+age_of_child # outputs 'My child is 0 years old.'
+age_of_child(5) # outputs 'My child is 5 years old.'
+```
+
+Notice that all we've done is add `=0` to the `age` parameter. This tells Ruby that the value of `age` should be `0` unless we pass a value. We now have two options: pass the age, or don't pass the age and allow the function to decide its value.
+
+Let's update our method to also output the name of the child.
+
+```ruby
+def age_of_child(name, age=0)
+  puts "My child #{name} is #{age} years old."
+end
+
+age_of_child # errors! Not enough arguments.
+age_of_child('Spencer') # outputs 'My child Spencer is 0 years old.'
+age_of_child('Spencer', 5) # outputs 'My child Spencer is 5 years old.'
+```
+
+We now have a normal parameter mixed in with our default/optional parameter. Notice that this parameter is mandatory because we are not assigning it a default value. It will throw an error if we fail to pass it!
+
+#### Order matters
+
+Note that we have placed the default parameter `age=0` after `name`. Ruby convention dictates that any required parameters should at the start of the list of parameters, and any default parameters should be at the end of the list. Ignore this convention at your own risk!
+
+
+#### Multiple default parameters
+
+Let's try using more than one default parameter by giving `name` the default value of `'child'` and slightly changing the output message.
+
+```ruby
+def age_of_child(name='child', age=0)
+  puts "My #{name} is #{age} years old."
+end
+
+age_of_child # outputs 'My child is 0 years old.'
+age_of_child('Spencer') # outputs 'My Spencer is 0 years old.'
+age_of_child('Spencer', 5) # outputs 'My Spencer is 5 years old.'
+age_of_child(5, 'Spencer') # outputs 'My 5 is Spencer years old.'
+```
+
+
 ## Exercise 4
+
+Create a file called `exercise4.rb` and place your answers inside.
+
+1. Write a method takes one parameter. It should return whatever you pass it, or return `'nothing'` if you don't pass it a an argument.
+  * Try to return these other values if no argument is passed: `nil`, `0`, `''`, `{}`, `[]`
+
+1. Write a method that multiplies two numbers that are passed. If the second number is not passed, it should multiply the first number with itself (ie. square it).
+
+1. Write a method that takes two numbers are returns the larger one. If only one number is passed, return it. If no numbers are passed, return `nil`.
+
+
+## Exercise 5
 
 Create a file called `exercise4.rb` and place your answers inside.
 
@@ -565,7 +652,7 @@ Create a file called `exercise4.rb` and place your answers inside.
 1. Create an array of names and try the methods. Print out the result.
 
 
-## Exercise 5
+## Exercise 6
 
 Create a file called `exercise5.rb` and place your answers inside.
 
@@ -577,7 +664,7 @@ NOTE: the 'double star' operator means 'to the power to'. In other words, `3**4`
   * `area(10, 5)` => 50
   * `area(2, 3)` => 6
 
-1. The speed of an object (m/s) is: distance / time equal to the distance it has traveled (m) divided by the time it has been moving.
+1. The speed of an object (m/s) is: distance / time (the distance it has traveled (meters) divided by the time it has been moving (seconds))
   * `speed(100, 5)` => 20 (distance, time)
   * `speed(250, 100)` => 2.5
 
@@ -598,6 +685,7 @@ NOTE: the 'double star' operator means 'to the power to'. In other words, `3**4`
   * `e = energy(0.05)` => 4.493775893684088e+15 (ie. approx. 44937 with 10 zeroes)
   * `e = energy(0.00003)` => 2696265536210.4526
 
+
 ## Exercise 6
 
 1. Write a method that, given three number arguments, provides the largest number that is no more than 10.
@@ -605,23 +693,20 @@ NOTE: the 'double star' operator means 'to the power to'. In other words, `3**4`
   * `largest_to_10(11, 9, 10)` => 10
   * `largest_to_10(12, 15, 300)` => nil
 
+1. Write a method that takes a number called `quantity` and a string as parameters. It should print out the provided string `quantity` times.
+  * If no string is provided, it should print out some default message (eg. `'No message'`) instead.
 
-
-
-
-
-
+1. Write a method that takes a string (`name`) and returns a hash containing some basic information about a new-born baby.
+  * age
+  * first name
+  * family name (your own family name)
 
 
 ## Stretch Exercises
 
 NOTE: These exercises are advanced and introduce new syntax. Stop here if your brain is full! If not, put these (optional) exercises into a file called `stretch.rb`.
 
-
-[[ cover default parameters here? ]]
-
-
-1. The answer to the life, the universe, and everything is 42. It doesn't matter how many arguments you pass to this method - it should always return 42. NOTE: this requires special syntax.
+1. The answer to the life, the universe, and everything is 42. It doesn't matter how many arguments you pass to this method - it should always return 42. NOTE: this requires special syntax. Start Googling!
   * `answer` => 42
   * `answer(5, 2)` => 42
 
@@ -631,19 +716,25 @@ NOTE: These exercises are advanced and introduce new syntax. Stop here if your b
   * `multiply(3, 7)` => 21
   * `multiply(4, 5, 6, 2)` => 240
 
-
+1. Write a method that takes any number of string arguments and returns a hash of information. The hash should have key-value pairs where the keys are the arguments provided and the values are all `true`. For example:
+  * `get_hash('cool', 'awesome', 'neato')` should return
+  ```
+  {
+      'cool' => true,
+      'awesome' => true,
+      'neato' => true,
+  }
+  ```
 
 
 # Further Reading
 
 There's lots to learn! You will gain a stronger understanding of methods and return values with time and effort.
 
-### Code exercises
-*
-
-
-### Great books
-*
-
 ## Additional Resources
-*
+* [Tutorials Point - Ruby Methods](https://www.tutorialspoint.com/ruby/ruby_methods.htm)
+* [Ruby in 20 Minutes](https://www.ruby-lang.org/en/documentation/quickstart/2/)
+* [Method Arguments in Ruby (blog)](http://www.skorks.com/2009/08/method-arguments-in-ruby/)
+
+## Advanced
+* [Keyword Arguments in Ruby](https://robots.thoughtbot.com/ruby-2-keyword-arguments)
