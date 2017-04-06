@@ -15,7 +15,12 @@ This assignment will teach you about methods and return values. Methods are one 
 1. [Exercise 2](#exercise-2)
 1. [Implicit Returns](#implicit-returns)
 1. [Exercise 3](#exercise-3)
+1. [Default Parameters](#default-parameters)
 1. [Exercise 4](#exercise-4)
+1. [Exercise 5](#exercise-5)
+1. [Exercise 6](#exercise-6)
+1. [Exercise 7](#exercise-7)
+1. [Stretch Exercise](#stretch-exercises)
 1. [Further reading](#further-reading)
 
 
@@ -686,7 +691,7 @@ NOTE: the 'double star' operator means 'to the power to'. In other words, `3**4`
   * `e = energy(0.00003)` => 2696265536210.4526
 
 
-## Exercise 6
+## Exercise 7
 
 1. Write a method that, given three number arguments, provides the largest number that is no more than 10.
   * `largest_to_10(5, 6, 8)` => 8
